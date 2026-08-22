@@ -1,0 +1,5 @@
+.claude/
+*.xpi
+*.zip
+update.json
+.DS_Store

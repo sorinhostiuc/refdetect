@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://refdetect/content/ui/dialog.css" type="text/css"?>
+
+<window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        xmlns:html="http://www.w3.org/1999/xhtml"
+        title="RefDetect - Detect Reference Manager"
+        width="580" height="520"
+        onload="RefDetectDialog.init();">
+
+  <script src="chrome://refdetect/content/ui/dialog.js"/>
+
+  <vbox id="rd-main" flex="1">
+
+    <!-- SCREEN 1: File Picker -->
+    <vbox id="rd-screen-picker" class="rd-screen">
+      <label class="rd-title" value="Detect Reference Manager"/>
+      <description class="rd-subtitle">Select a .docx or .odt file to identify which citation manager was used.</description>
+
+      <vbox id="rd-drop-zone" class="rd-dropzone">
+        <label class="rd-drop-label" value="Drop file here or click to browse"/>
+        <label class="rd-drop-formats" value=".docx  .odt"/>
+        <html:input id="rd-file-input" type="file" accept=".docx,.odt" hidden="true"/>
+      </vbox>
+
+      <hbox id="rd-file-info" hidden="true">
+        <label id="rd-file-name" class="rd-filename" value=""/>
+        <spacer flex="1"/>
+        <button id="rd-btn-clear" label="Clear" oncommand="RefDetectDialog.clearFile();"/>
+      </hbox>
+
+      <spacer flex="1"/>
+
+      <hbox class="rd-buttons">
+        <spacer flex="1"/>
+        <button id="rd-btn-detect" label="Detect" disabled="true" oncommand="RefDetectDialog.runDetection();"/>
+      </hbox>
+    </vbox>
+
+    <!-- SCREEN 2: Progress -->
+    <vbox id="rd-screen-progress" class="rd-screen" hidden="true">
+      <label class="rd-title" value="Analyzing document..."/>
+      <progressmeter id="rd-progress" mode="undetermined"/>
+      <label id="rd-progress-label" class="rd-progress-text" value="Reading file..."/>
+    </vbox>
+
+    <!-- SCREEN 3: Results -->
+    <vbox id="rd-screen-results" class="rd-screen" hidden="true">
+      <label class="rd-title" value="Detection Results"/>
+      <description id="rd-result-file" class="rd-subtitle" value=""/>
+
+      <vbox id="rd-primary-result" class="rd-result-card">
+        <hbox align="center">
+          <label class="rd-result-label" value="Reference Manager:"/>
+          <label id="rd-detected-manager" class="rd-detected-name" value=""/>
+        </hbox>
+        <hbox align="center">
+          <label class="rd-result-label" value="Confidence:"/>
+          <label id="rd-confidence" class="rd-confidence" value=""/>
+          <html:div id="rd-confidence-bar" class="rd-confidence-bar">
+            <html:div id="rd-confidence-fill" class="rd-confidence-fill"></html:div>
+          </html:div>
+        </hbox>
+        <hbox align="center">
+          <label class="rd-result-label" value="Citations found:"/>
+          <label id="rd-citation-count" class="rd-result-value" value=""/>
+        </hbox>
+        <hbox align="center">
+          <label class="rd-result-label" value="Bibliography:"/>
+          <label id="rd-has-bibliography" class="rd-result-value" value=""/>
+        </hbox>
+        <hbox align="center">
+          <label class="rd-result-label" value="Mechanism:"/>
+          <label id="rd-mechanism" class="rd-result-value" value=""/>
+        </hbox>
+      </vbox>
+
+      <vbox id="rd-additional-managers" hidden="true">
+        <label class="rd-section-label" value="Additional managers detected:"/>
+        <vbox id="rd-additional-list"/>
+      </vbox>
+
+      <vbox id="rd-signatures-section">
+        <label class="rd-section-label" value="Detected signatures:"/>
+        <vbox id="rd-signatures-list" class="rd-signatures"/>
+      </vbox>
+
+      <vbox id="rd-no-results" hidden="true" class="rd-no-results">
+        <label value="No reference manager detected."/>
+        <description>This document may have been created without a reference manager, or citations may have been unlinked (converted to plain text).</description>
+      </vbox>
+
+      <spacer flex="1"/>
+
+      <hbox class="rd-buttons">
+        <button id="rd-btn-copy" label="Copy Report" oncommand="RefDetectDialog.copyReport();"/>
+        <spacer flex="1"/>
+        <button id="rd-btn-back" label="New File" oncommand="RefDetectDialog.reset();"/>
+        <button id="rd-btn-close" label="Close" oncommand="window.close();"/>
+      </hbox>
+    </vbox>
+
+  </vbox>
+</window>
