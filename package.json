@@ -1,13 +1,13 @@
 {
   "name": "refdetect",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "Detect which reference manager created citations in a Word or OpenDocument file",
   "author": "Sorin Hostiuc",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mapispev/refdetect.git"
+    "url": "https://github.com/sorinhostiuc/refdetect.git"
   },
   "scripts": {
     "build": "bash build.sh",

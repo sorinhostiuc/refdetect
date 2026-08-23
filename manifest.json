@@ -1,14 +1,14 @@
 {
   "manifest_version": 2,
   "name": "RefDetect",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Detect which reference manager was used to create citations in a Word document",
   "author": "Sorin Hostiuc",
-  "homepage_url": "https://github.com/mapispev/refdetect",
+  "homepage_url": "https://github.com/sorinhostiuc/refdetect",
   "applications": {
     "zotero": {
       "id": "refdetect@hostiuc.com",
-      "update_url": "https://github.com/mapispev/refdetect/releases/latest/download/update.json",
+      "update_url": "https://github.com/sorinhostiuc/refdetect/releases/latest/download/update.json",
       "strict_min_version": "6.999",
       "strict_max_version": "9.*"
     }
