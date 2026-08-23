@@ -1,25 +1,36 @@
 # RefDetect
 
-RefDetect examines the citation data stored inside Microsoft Word and OpenDocument files and reports which reference manager most likely created them. The document is read for analysis and is not modified.
+RefDetect identifies the reference manager behind live citations in Word and OpenDocument files before you begin a migration or repair.
+
+![RefDetect results](docs/images/refdetect.png)
 
 ## Detected reference managers
 
-The detector recognizes citation structures associated with Zotero, Mendeley, EndNote, Paperpile, RefWorks, Citavi, and JabRef. It reports the evidence found in the document and assigns a confidence level to the result.
+RefDetect examines field codes, content controls, document markers, and embedded metadata. It recognizes Zotero, EndNote, Mendeley, Paperpile, RefWorks, Citavi, and several related workflows. A document can contain evidence from more than one reference manager.
 
-## Installation
-
-Download `refdetect-1.0.0.xpi` from the latest release. In Zotero, open `Tools > Plugins`, choose `Install Add-on From File`, and select the XPI. The current release supports Zotero 7, 8, and 9.
+The scan runs locally. RefDetect does not upload or modify the selected document.
 
 ## Checking a document
 
-Open `Tools > Detect Reference Manager...` and select a `.docx` or `.odt` file. RefDetect parses the document package, counts the signatures left by supported citation tools, and displays the likely source together with the confidence score and supporting details.
+1. Open **Tools > Detect Reference Manager** in Zotero.
+2. Select a `.docx` or `.odt` file.
+3. Review the detected managers, citation mechanisms, and confidence notes.
 
-A document whose citations have been flattened to plain text contains no field metadata; RefDetect cannot identify the original manager in that case.
+## Installation
 
-## Building from source
+1. Download the latest `.xpi` from [Releases](https://github.com/sorinhostiuc/refdetect/releases/latest).
+2. In Zotero, open **Tools > Plugins**.
+3. Choose **Install Plugin From File**, select the `.xpi`, and restart Zotero if asked.
 
-On Windows, run `npm run build:windows`. On Unix-like systems, run `npm run build`. The XPI is written to the repository root.
+RefDetect supports Zotero 7 through 9.
+
+## Development
+
+```bash
+npm ci
+npm run build
+```
 
 ## License
 
-RefDetect is released under the MIT License. See [LICENSE](LICENSE).
+[MIT](LICENSE)
