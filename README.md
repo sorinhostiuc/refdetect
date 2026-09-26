@@ -22,7 +22,7 @@ The scan runs locally. RefDetect does not upload or modify the selected document
 2. In Zotero, open **Tools > Plugins**.
 3. Choose **Install Plugin From File**, select the `.xpi`, and restart Zotero if asked.
 
-RefDetect supports Zotero 7 through 9.
+RefDetect supports Zotero 7 and later (including Zotero 10 and beyond).
 
 ## Development
 

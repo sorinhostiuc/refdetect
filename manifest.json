@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "RefDetect",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Detect which reference manager was used to create citations in a Word document",
   "author": "Sorin Hostiuc",
   "homepage_url": "https://github.com/sorinhostiuc/refdetect",
@@ -10,7 +10,7 @@
       "id": "refdetect@hostiuc.com",
       "update_url": "https://github.com/sorinhostiuc/refdetect/releases/latest/download/update.json",
       "strict_min_version": "6.999",
-      "strict_max_version": "9.*"
+      "strict_max_version": "10000000.*"
     }
   }
 }

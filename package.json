@@ -1,6 +1,6 @@
 {
   "name": "refdetect",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "description": "Detect which reference manager created citations in a Word or OpenDocument file",
   "author": "Sorin Hostiuc",
